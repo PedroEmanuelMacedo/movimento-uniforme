@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimento Retilíneo Uniforme</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #87CEEB;
+        }
+
+        #carro {
+            width: 50px;
+            height: 30px;
+            background-color: red;
+            position: absolute;
+            top: 100px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            position: absolute;
+            top: 150px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div id="carro"></div>
+<button onclick="iniciarMovimento()">Iniciar Movimento</button>
+
+<script>
+    let posicao = 0;
+    const velocidade = 2; // pixels por intervalo
+
+    function iniciarMovimento() {
+        const carro = document.getElementById("carro");
+        const intervalo = setInterval(() => {
+            if (posicao < window.innerWidth) {
+                posicao += velocidade;
+                carro.style.left = posicao + "px";
+            } else {
+                clearInterval(intervalo);
+            }
+        }, 20); // Atualiza a cada 20 ms
+    }
+</script>
+
+</body>
+</html>
